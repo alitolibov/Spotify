@@ -518,13 +518,15 @@ footer {
 	flex-direction: column;
 	gap: 25px;
 	cursor: pointer;
+	transition: 500ms;
 }
 .item-img {
 	width: 182px;
 	height: 182px;
-	background-size: contain;
+	background-size: cover;
 	background-repeat: no-repeat;
 	cursor: pointer;
+	position: relative;
 }
 .item-text-block {
 	display: flex;
@@ -536,7 +538,24 @@ footer {
 	font-size: 20px;
 	color: #FFFFFF;
 }
-
+.player{
+	width: 75px;
+	height: 75px;
+	background-image: url("./public/images/Group\ 6player.png");
+	background-size: cover;
+	position: absolute;
+	bottom: 40%;
+	right: 40%;
+	transition: 400ms;
+	transform: translate(100%, 100%);
+	opacity: 0;
+	display: none;
+	border-radius: 100%;
+}
+.player:hover{
+	width: 77px;
+	height: 77px;
+}
 .text {
 	font-family: 'Circular';
 	font-size: 18px;

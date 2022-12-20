@@ -35,11 +35,13 @@ const reload = (arr) => {
      for(let item of arr.slice(0, 5)) {
         let items = document.createElement('div'),
             itemImg = document.createElement('div'),
+            itemPlayer = document.createElement('div'),
             itemTextBlock = document.createElement('div'),
             itemText = document.createElement('p'),
             itemText2 = document.createElement('p');
 
         items.classList.add('items')
+        itemPlayer.classList.add('player')
         itemImg.classList.add('item-img')
         itemImg.style.backgroundImage = `url("./img/${item.img}.jpg")`  
         itemTextBlock.classList.add('item-text-block')
@@ -49,6 +51,22 @@ const reload = (arr) => {
         itemText2.innerHTML = item.songs
         section.append(items)
         items.append(itemImg, itemTextBlock)
+        itemImg.append(itemPlayer)
         itemTextBlock.append(itemText, itemText2)
+
+        items.onmouseenter = () => {
+            items.style.backgroundColor = "#282828"
+            itemPlayer.style.display = "block"
+            setTimeout(() => {
+                itemPlayer.style.opacity = "1"
+            }, 100);
+        }
+        items.onmouseleave = () => {
+            items.style.backgroundColor = null
+            itemPlayer.style.opacity = "0"
+            setTimeout(() => {
+                itemPlayer.style.display = null
+            }, 500);
+        }
      }
  }
