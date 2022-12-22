@@ -1,5 +1,7 @@
 import layout from "./layout.js";
 let url = "http://localhost:3001/playlist"
+let a
+let b
 axios.get(url)
 .then(res => {
     console.log(res.data)
@@ -7,9 +9,15 @@ axios.get(url)
 axios.get("http://localhost:3001/alboms")
 .then(res => {
     console.log(res.data)
-    reload(res.data)
+    a = res.data
+    b = res.data
+    reload(a.slice(0, 5))
+    reloadtwo(b.slice(6, 11))
 })
 let body = document.querySelector('#root')
+let cont = document.body
+body.classList.add('index')
+
 layout(body)
 let right = document.querySelector('.right')
 let header = document.querySelector('header')
@@ -17,6 +25,20 @@ let flow = document.querySelector('.none')
 let wrap = document.querySelector('.wrapper')
 let grid = document.querySelector('.wrap-grid')
 let section = document.querySelector('.grid')
+let sectiontwo = document.querySelector('.gridtwo')
+let grids = document.querySelectorAll('.grid-block')
+grids.forEach(item => {
+    item.onmouseenter = () => {
+        item.firstChild.nextElementSibling.style.display = "block"
+            item.firstChild.nextElementSibling.style.opacity = "1"
+    }
+         item.onmouseleave = () => {
+	        item.firstChild.nextElementSibling.style.opacity = "0"
+	        setTimeout(() => {
+		        item.firstChild.nextElementSibling.style.display = null
+	         }, 500);
+            } 
+})
 
 flow.onclick = () => {
     right.style.display = "none"
@@ -27,12 +49,20 @@ flow.onclick = () => {
     wrap.style.left = '18.0%'
     wrap.style.transform = 'translateX(0%)'
     grid.style.gridTemplateColumns = "repeat(3, 1fr)"
+    section.style.gridTemplateColumns = "repeat(6, 224px)"
+    section.style.gridGap = "31px"
+    sectiontwo.style.gridTemplateColumns = "repeat(6, 224px)"
+    sectiontwo.style.gridGap = "31px"
+    body.style.height = "147vh"
+    reload(a.slice(0, 6))
+    reloadtwo(b.slice(6))
 }
 
 
 
 const reload = (arr) => {
-     for(let item of arr.slice(0, 5)) {
+    section.innerHTML = ""
+     for(let item of arr) {
         let items = document.createElement('div'),
             itemImg = document.createElement('div'),
             itemPlayer = document.createElement('div'),
@@ -49,6 +79,7 @@ const reload = (arr) => {
         itemText.innerHTML = item.artist
         itemText2.classList.add('text')
         itemText2.innerHTML = item.songs
+
         section.append(items)
         items.append(itemImg, itemTextBlock)
         itemImg.append(itemPlayer)
@@ -66,7 +97,48 @@ const reload = (arr) => {
             itemPlayer.style.opacity = "0"
             setTimeout(() => {
                 itemPlayer.style.display = null
-            }, 500);
+            }, 300);
+        }
+     }
+ }
+ const reloadtwo = (arr) => {
+    sectiontwo.innerHTML = ""
+     for(let item of arr) {
+        let items = document.createElement('div'),
+            itemImg = document.createElement('div'),
+            itemPlayer = document.createElement('div'),
+            itemTextBlock = document.createElement('div'),
+            itemText = document.createElement('p'),
+            itemText2 = document.createElement('p');
+
+        items.classList.add('items')
+        itemPlayer.classList.add('player')
+        itemImg.classList.add('item-img')
+        itemImg.style.backgroundImage = `url("./public/images/${item.img}.png")`  
+        itemTextBlock.classList.add('item-text-block')
+        itemText.classList.add('grid-text')
+        itemText.innerHTML = item.artist
+        itemText2.classList.add('text')
+        itemText2.innerHTML = item.songs
+
+        sectiontwo.append(items)
+        items.append(itemImg, itemTextBlock)
+        itemImg.append(itemPlayer)
+        itemTextBlock.append(itemText, itemText2)
+
+        items.onmouseenter = () => {
+            items.style.backgroundColor = "#282828"
+            itemPlayer.style.display = "block"
+            setTimeout(() => {
+                itemPlayer.style.opacity = "1"
+            }, 100);
+        }
+        items.onmouseleave = () => {
+            items.style.backgroundColor = null
+            itemPlayer.style.opacity = "0"
+            setTimeout(() => {
+                itemPlayer.style.display = null
+            }, 300);
         }
      }
  }

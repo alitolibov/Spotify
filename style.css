@@ -26,10 +26,7 @@
 }
 
 
-#root {
-	background: linear-gradient(180deg, #3333A3 5.09%, #121212 33.4%);
-	height: 172vh;
-}
+
 
 .App {
 	display: flex;
@@ -37,9 +34,22 @@
 	position: relative;
 }
 
+.rgb {
+	background: linear-gradient(180deg, #A34284 5.09%, #121212 43.28%);
+	height: 100vh;
+}
+
+.index {
+	background: linear-gradient(180deg, #3333A3 5.09%, #121212 33.4%);
+	height: 155vh;
+}
+.page3{
+	background-color: #121212;
+	height: 155vh;
+}
+
 .left {
 	width: 16.5%;
-	/* width: 310px; */
 	height: 100vh;
 	background-color: black;
 	padding: 60px 34px 0;
@@ -440,6 +450,7 @@ footer {
 	transform: translateX(-50%);
 }
 
+
 .hello {
 	font-family: 'Circular 700';
 	font-size: 39px;
@@ -462,6 +473,32 @@ footer {
 	align-items: center;
 	gap: 21px;
 	cursor: pointer;
+	position: relative;
+	transition: 500ms;
+}
+
+.grid-block:hover {
+	background-color: #ffffff50;
+
+}
+
+.player2 {
+	width: 75px;
+	height: 75px;
+	background-image: url("./public/images/Group\ 6player.png");
+	background-size: cover;
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	transition: 500ms;
+	opacity: 0;
+	display: none;
+	border-radius: 100%;
+}
+
+.player2:hover {
+	width: 77px;
+	height: 77px;
 }
 
 .grid-img {
@@ -504,13 +541,23 @@ footer {
 	line-height: 38px;
 	color: #FFFFFF;
 }
-.grid{
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(5, 220px);
+	grid-gap: 30px;
+	grid-auto-rows: 324px;
+	margin-bottom: 50px;
+}
+
+.gridtwo {
 	display: grid;
 	grid-template-columns: repeat(5, 220px);
 	grid-gap: 30px;
 	grid-auto-rows: 324px;
 }
-.items{
+
+.items {
 	background: #FFFFFF04;
 	border-radius: 8px;
 	padding: 20px 21px 18px;
@@ -520,6 +567,11 @@ footer {
 	cursor: pointer;
 	transition: 500ms;
 }
+
+.items:hover {
+	background-color: #ffffff50;
+}
+
 .item-img {
 	width: 182px;
 	height: 182px;
@@ -528,17 +580,20 @@ footer {
 	cursor: pointer;
 	position: relative;
 }
+
 .item-text-block {
 	display: flex;
 	flex-direction: column;
 	gap: 8px;
 }
+
 .grid-text {
 	font-family: 'Circular 700';
 	font-size: 20px;
 	color: #FFFFFF;
 }
-.player{
+
+.player {
 	width: 75px;
 	height: 75px;
 	background-image: url("./public/images/Group\ 6player.png");
@@ -546,68 +601,196 @@ footer {
 	position: absolute;
 	bottom: 40%;
 	right: 40%;
-	transition: 400ms;
+	transition: 500ms;
 	transform: translate(100%, 100%);
 	opacity: 0;
 	display: none;
 	border-radius: 100%;
 }
-.player:hover{
+
+.player:hover {
 	width: 77px;
 	height: 77px;
 }
+
 .text {
 	font-family: 'Circular';
 	font-size: 18px;
 	color: #B3B3B3;
 }
-/*.main-grid {
-	width: 100%;
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	
 
-	.grid-block {
-		
-
-		.grid-img {
-			
-		}
-
-		.grid-text {
-			font-family: 'Circular 700';
-			font-size: 20px;
-			color: white;
-		}
-	}
+.playlisy-header {
+	display: flex;
+	gap: 32px;
+	align-items: center;
 }
 
-.blocksecond {
-	margin-top: 50px;
-	margin-bottom: 120px;
-
-	.block-text {
-		font-family: 'Circular 700';
-		font-size: 30px;
-		color: #FFFFFF;
-	}
+.playlist-img {
+	width: 297px;
+	height: 297px;
+	background-image: url("./public/images/Chillbig.png");
+	background-size: cover;
 }
 
-.secondgrid {
-	display: grid;
-	grid-template-columns: repeat(5, 220px);
-	width: 100%;
-	grid-gap: 25px;
-	margin-top: 26px;
+.playlist-texts {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
 }
 
-.item {
-	height: 324px;
+.public {
+	font-family: 'Circular 500';
+	font-size: 16px;
+	line-height: 20px;
+	color: #FFFFFF;
+}
 
-	
+.titletext {
+	font-family: 'Circular 900';
+	font-size: 122px;
+	line-height: 154px;
+	color: #FFFFFF;
+}
 
-	
+.artist-name {
+	font-family: 'Circular';
+	font-size: 20px;
+	line-height: 25px;
+	color: #FFFFFF;
+}
 
-		
-	}
-} */
+.desc {
+	font-family: 'Circular';
+	font-size: 18px;
+	line-height: 23px;
+	color: rgba(255, 255, 255, 0.7);
+}
+
+
+.biggestcontrols {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 61px 0 75px;
+}
+
+.biggestLeft {
+	display: flex;
+	align-items: center;
+	gap: 36px;
+}
+
+.biggestPlayer {
+	height: 72px;
+	width: 72px;
+	background-image: url("./public/images/Ellipse\ 1BigPlayer.png");
+	background-size: cover;
+	cursor: pointer !important;
+	position: relative;
+}
+
+.pauses {
+	height: 24.387096405029297px;
+	width: 22.064516067504883px;
+	background-image: url('./public/images/Polygon\ 1.png');
+	background-size: cover;
+	cursor: pointer !important;
+	position: absolute;
+	top: 50%;
+	left: 53%;
+	transform: translate(-50%, -50%);
+}
+
+.biggestHeart {
+	width: 52px;
+	height: 52px;
+	background-image: url("./public/images/Heart.png");
+	background-size: cover;
+	cursor: pointer !important;
+}
+
+.biggestDownload {
+	width: 52px;
+	height: 52px;
+	background-image: url("./public/images/downloads.png");
+	background-size: cover;
+	cursor: pointer !important;
+}
+
+.biggestDots {
+	width: 44px;
+	height: 44px;
+	background-image: url("./public/images/dots.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	cursor: pointer !important;
+}
+
+.biggestSearch {
+	width: 23px;
+	height: 23px;
+	background-image: url("./public/images/search.png");
+	background-size: cover;
+	cursor: pointer !important;
+}
+
+.biggestInput {
+	width: 155px;
+	height: 29px;
+	background-image: url("./public/images/Frame\ 13.png");
+	background-size: cover;
+	cursor: pointer !important;
+}
+
+.biggestHeader {
+	position: relative;
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid #666666;
+	padding-bottom: 11px;
+}
+
+.count {
+	font-family: 'Circular';
+	font-size: 22px;
+	color: #B3B3B3;
+	position: absolute;
+	left: 2%;
+	bottom: 12px;
+}
+
+.font {
+	font-family: 'Circular';
+	font-size: 16px;
+	color: #B3B3B3;
+	position: absolute;
+	bottom: 15px;
+}
+.hover{
+	transition: 500ms;
+}
+.hover:hover{
+	filter: invert(30%);
+}
+.headerTitle {
+	left: 5%;
+}
+
+.headerAlbum {
+	left: 36.3%;
+}
+
+.headerDate {
+	left: 57.4%;
+}
+
+.clock {
+	width: 28px;
+	height: 28px;
+	background-image: url("./public/images/Clock_XS.png");
+	background-size: cover;
+	position: absolute;
+	bottom: 14px;
+	left: 93.7%;
+}
