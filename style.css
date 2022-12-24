@@ -27,23 +27,33 @@
 
 
 
+#root{
+	position: absolute;
+}
+body{
+	background-color: #121212;	
+}
+.color{
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	z-index: -5;
 
+}
 .App {
 	display: flex;
 	justify-content: space-between;
 	position: relative;
 }
 
-.rgb {
-	background: linear-gradient(180deg, #A34284 5.09%, #121212 43.28%);
-	height: 100vh;
-}
-
 .index {
 	background: linear-gradient(180deg, #3333A3 5.09%, #121212 33.4%);
-	height: 155vh;
+	height: 144vh;
 }
-.page3{
+
+.page3 {
 	background-color: #121212;
 	height: 155vh;
 }
@@ -338,17 +348,25 @@ footer {
 .center-back:hover {
 	filter: invert(20%);
 }
+.progress{
+	background-color: white;
+	height: 100%;
+	cursor: pointer;
+}
 
 .pause {
 	width: 40px;
 	height: 40px;
-	background-image: url("./public/images/Component\ 1stop.png");
+	background-image: url("./public/images/play\ \(2\).svg");
+	filter: invert(100%);
 	background-size: contain;
 	cursor: pointer;
 }
-
+.stops{
+	background-image: url('./public/images/pause.svg');
+} 
 .pause:hover {
-	filter: invert(20%);
+	filter: invert(70%);
 }
 
 
@@ -359,11 +377,21 @@ footer {
 	background-size: contain;
 	cursor: pointer;
 }
-
+.footer-left{
+	display: flex;
+	align-items: center;
+	gap: 25px;
+}
 .center-next:hover {
 	filter: invert(20%);
 }
-
+.musicimg{
+	width: 60px;
+	height: 60px;
+	border-radius: 5px;
+	background-image: url('./img/ExHabit.jpg');
+	background-size: cover;
+}
 
 .return {
 	width: 32px;
@@ -379,8 +407,14 @@ footer {
 .footer-center-bottom {
 	width: 552px;
 	height: 5px;
-	background-image: url("./public/images/Group\ 2crossbar.png");
+	background-color: #8B8B8B;
+	border-radius: 10px;
 	cursor: pointer;
+	overflow: hidden;
+}
+.progrees{
+	height: 100%;
+	background-color: white;
 }
 
 .footer-right {
@@ -444,10 +478,11 @@ footer {
 
 .wrapper {
 	width: 63%;
-	position: absolute;
+	margin: 110px 0 0 18.4% ;
+	/* position: absolute;
 	left: 49.5%;
 	top: 110px;
-	transform: translateX(-50%);
+	transform: translateX(-50%); */
 }
 
 
@@ -628,7 +663,6 @@ footer {
 .playlist-img {
 	width: 297px;
 	height: 297px;
-	background-image: url("./public/images/Chillbig.png");
 	background-size: cover;
 }
 
@@ -657,6 +691,10 @@ footer {
 	font-size: 20px;
 	line-height: 25px;
 	color: #FFFFFF;
+}
+
+.homeclick {
+	display: block;
 }
 
 .desc {
@@ -745,8 +783,6 @@ footer {
 
 .biggestHeader {
 	position: relative;
-	display: flex;
-	align-items: center;
 	border-bottom: 1px solid #666666;
 	padding-bottom: 11px;
 }
@@ -767,12 +803,15 @@ footer {
 	position: absolute;
 	bottom: 15px;
 }
-.hover{
+
+.hover {
 	transition: 500ms;
 }
-.hover:hover{
+
+.hover:hover {
 	filter: invert(30%);
 }
+
 .headerTitle {
 	left: 5%;
 }
@@ -782,7 +821,7 @@ footer {
 }
 
 .headerDate {
-	left: 57.4%;
+	left: 59.4%;
 }
 
 .clock {
@@ -792,5 +831,129 @@ footer {
 	background-size: cover;
 	position: absolute;
 	bottom: 14px;
+	left: 93.7%;
+}
+
+.musicitem {
+	width: 100%;
+	height: 65px;
+	position: relative;
+	cursor: pointer;
+	transition: 500ms;
+	border-radius: 5px;
+}
+
+.musicitem:hover {
+	background-color: #ffffff30;
+}
+
+.musicnumber {
+	font-family: 'Circular';
+	font-size: 22px;
+	color: #B3B3B3;
+	position: absolute;
+	left: 2%;
+	bottom: 15px;
+}
+
+.musicblock {
+	position: absolute;
+	left: 5%;
+	bottom: 3px;
+	display: flex;
+	align-items: center;
+	gap: 21px;
+}
+
+.musicsblock {
+	display: flex;
+	flex-direction: column;
+	margin-top: 32px;
+	margin-bottom: 150px;
+}
+
+.musicblockimg {
+	width: 50px;
+	height: 50px;
+	background-size: cover;
+
+}
+
+.play {
+	width: 23px;
+	height: 23px;
+	background-image: url("./public/images/play.svg");
+	background-size: cover;
+	filter: invert(100%);
+	position: absolute;
+	left: 1.5%;
+	bottom: 22px;
+	opacity: 0;
+	display: none;
+	transition: 500ms;
+}
+
+.musicblocktext {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	padding-top: 2px;
+}
+
+.blocktext1 {
+	font-family: 'Circular';
+	font-size: 20px;
+	color: #FFFFFF;
+}
+
+.blocktext2 {
+	font-family: 'Circular';
+	font-size: 18px;
+	color: #B3B3B3;
+}
+
+.musicblockalbum {
+	font-family: 'Circular';
+	font-size: 18px;
+	color: #B3B3B3;
+	position: absolute;
+	left: 36.3%;
+	bottom: 19px;
+}
+
+.musicdate {
+	font-family: 'Circular';
+	font-size: 18px;
+	color: #B3B3B3;
+	position: absolute;
+	bottom: 19px;
+	left: 59.4%;
+}
+
+.likedblock {
+	position: absolute;
+	width: 28px;
+	height: 28px;
+	background-image: url("./public/images/211754_heart_icon.svg");
+	background-size: cover;
+	filter: invert(100%);
+	display: none;
+	opacity: 0;
+	transition: 500ms;
+	left: 89.4%;
+	bottom: 22px;
+	transition: 500ms;
+}
+.full{
+	background-image: url("./public/images/Heart_Fill_XS.png");
+	filter: invert(0%);
+}
+
+.timeblock {
+	font-family: 'Circular';
+	font-size: 20px;
+	color: #FFFFFF;
+	position: absolute;
+	bottom: 19px;
 	left: 93.7%;
 }

@@ -1,12 +1,15 @@
+
 const layout = (place) => {
     place.innerHTML = `
             <div class="left">
             <div class="left-top">
                 <nav>
+                <a href="../index.html" class="homeclick">
                     <div class="img-block">
-                        <div class="img home"></div>
-                        <p class="text active">Home</p>
+                    <div class="img home"></div>
+                    <p class="text active">Home</p>
                     </div>
+                </a>
                     <div class="img-block">
                         <div class="img search"></div>
                         <p class="text">Search</p>
@@ -92,8 +95,11 @@ const layout = (place) => {
         </div>
         <footer>
             <div class="footer-left">
-                <p class="musictitle">Play It Safe</p>
+            <div class="musicimg"></div>
+            <div class="artistssongs">
+            <p class="musictitle">Play It Safe</p>
                 <p class="musicartist">Julia Wolf</p>
+             </div>
             </div>
             <div class="footer-center">
                 <div class="footer-center-top">
@@ -102,9 +108,11 @@ const layout = (place) => {
                     <div class="pause"></div>
                     <div class="center-next"></div>
                     <div class="return"></div>
-                    <audio src=""></audio>
+                    <audio autoplay src=""></audio>
                 </div>
-                <div class="footer-center-bottom"></div>
+                <div class="footer-center-bottom">
+                    <div class="progress"></div>
+                </div>
             </div>
             <div class="footer-right">
                 <div class="xs"></div>

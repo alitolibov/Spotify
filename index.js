@@ -15,10 +15,9 @@ axios.get("http://localhost:3001/alboms")
     reloadtwo(b.slice(6, 11))
 })
 let body = document.querySelector('#root')
-let cont = document.body
-body.classList.add('index')
-
 layout(body)
+let cont = document.body
+cont.classList.add('index')
 let right = document.querySelector('.right')
 let header = document.querySelector('header')
 let flow = document.querySelector('.none')
@@ -46,8 +45,8 @@ flow.onclick = () => {
     header.style.left = '16.5%'
     header.style.transform = 'translateX(0%)'
     wrap.style.width = '80%'
-    wrap.style.left = '18.0%'
-    wrap.style.transform = 'translateX(0%)'
+    wrap.style.float = 'right'
+    wrap.style.margin = '110px 1.5% 0 0'
     grid.style.gridTemplateColumns = "repeat(3, 1fr)"
     section.style.gridTemplateColumns = "repeat(6, 224px)"
     section.style.gridGap = "31px"
@@ -57,6 +56,8 @@ flow.onclick = () => {
     reload(a.slice(0, 6))
     reloadtwo(b.slice(6))
 }
+let {pathname} = window.location
+pathname !== '/playlist/index.html' ? localStorage.removeItem('albom') : null
 
 
 
@@ -98,6 +99,10 @@ const reload = (arr) => {
             setTimeout(() => {
                 itemPlayer.style.display = null
             }, 300);
+        }
+        items.onclick = () => {
+            window.location.assign('./playlist/index.html')
+            localStorage.setItem('albom', JSON.stringify(item))
         }
      }
  }
