@@ -780,7 +780,7 @@ footer {
 
 .turt {
 	height: 5px;
-	animation: animation4 1.5s infinite;
+	animation: animation4 .5s infinite;
 	background: #65D36E;
 	width: 3px;
 }
