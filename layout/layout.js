@@ -1,4 +1,3 @@
-
 const layout = (place) => {
     place.innerHTML = `
             <div class="left">
@@ -108,7 +107,7 @@ const layout = (place) => {
                     <div class="pause"></div>
                     <div class="center-next"></div>
                     <div class="return"></div>
-                    <audio autoplay src=""></audio>
+                    <audio src=""></audio>
                 </div>
                 <div class="footer-center-bottom">
                     <div class="progress"></div>

@@ -1,4 +1,4 @@
-import layout from "./layout.js";
+import layout from "./layout/layout.js";
 let url = "http://localhost:3001/playlist"
 let a
 let b
@@ -26,6 +26,7 @@ let grid = document.querySelector('.wrap-grid')
 let section = document.querySelector('.grid')
 let sectiontwo = document.querySelector('.gridtwo')
 let grids = document.querySelectorAll('.grid-block')
+let click = document.querySelector('.click')
 grids.forEach(item => {
     item.onmouseenter = () => {
         item.firstChild.nextElementSibling.style.display = "block"
@@ -35,10 +36,9 @@ grids.forEach(item => {
 	        item.firstChild.nextElementSibling.style.opacity = "0"
 	        setTimeout(() => {
 		        item.firstChild.nextElementSibling.style.display = null
-	         }, 500);
+	         }, 200);
             } 
 })
-
 flow.onclick = () => {
     right.style.display = "none"
     header.style.width = '83.5%'
