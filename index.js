@@ -27,6 +27,12 @@ let section = document.querySelector('.grid')
 let sectiontwo = document.querySelector('.gridtwo')
 let grids = document.querySelectorAll('.grid-block')
 let click = document.querySelector('.click')
+let likedclick = document.querySelector('.likedclick')
+let likedtext = document.querySelector('.hometext')
+likedtext.style.color = '#ffffff'
+likedclick.onclick = () => {
+    window.location.assign('/liked/index.html')
+}
 grids.forEach(item => {
     item.onmouseenter = () => {
         item.firstChild.nextElementSibling.style.display = "block"
@@ -57,7 +63,7 @@ flow.onclick = () => {
     reloadtwo(b.slice(6))
 }
 let {pathname} = window.location
-pathname !== '/playlist/index.html' ? localStorage.removeItem('albom') : null
+pathname !== '/playlist/index.html' || '/liked/index.html' ? localStorage.removeItem('albom') : null
 
 
 

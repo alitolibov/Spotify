@@ -1,4 +1,7 @@
 import layout from "../layout/layout.js";
+let cont = document.querySelector('#root')
+let color = document.querySelector('.color2')
+layout(cont)
 let url = "http://localhost:3001/playlist"
 function write() {
     axios.get(url)
@@ -8,20 +11,9 @@ function write() {
     })
 }
 write()
-axios.get("http://localhost:3001/alboms")
-    .then(res => {
-        console.log(res.data)
-    })
 let local = JSON.parse(localStorage.getItem('albom'))
-let color = document.querySelector('.color')
-let cont = document.querySelector('#root')
-
-color.style.backgroundImage = local ? `linear-gradient(180deg, ${local.background} 5.09%, #121212 43.28%)` : `linear-gradient(180deg, #3333A3 5.09%, #121212 33.4%)`
 layout(cont)
 let right = document.querySelector('.right')
-let playlistImg = document.querySelector('.playlist-img').style.backgroundImage = `url(../img/${local.img}.jpg)`
-let title = document.querySelector('.titletext').innerHTML = local.artist
-let musicname = document.querySelector('.artist-name').innerHTML = local.songs
 let place = document.querySelector('.musicsblock')
 let header = document.querySelector('header')
 let flow = document.querySelector('.none')
@@ -39,12 +31,10 @@ let musicimg = document.querySelector('.musicimg')
 let stop = document.querySelector('.stop')
 let top = document.querySelector('.footer-center-top')
 let audio = document.querySelector('audio')
-let likedclick = document.querySelector('.likedclick')
-likedclick.onclick = () => {
-    window.location.assign('../liked/index.html')
-}
-
-
+let likedtext = document.querySelector('.likedtext')
+likedtext.style.color = '#ffffff'
+let home = document.querySelector('.home')
+home.style.filter = 'invert(25%)'
 flow.onclick = () => {
     right.style.display = "none"
     header.style.width = '83.5%'
@@ -59,16 +49,16 @@ flow.onclick = () => {
 }
 let count = 0
 const music = (arr) => {
-    place.innerHTML = ''
-    count = 0
     let data = arr.filter(item => {
-        if (local.artist === item.artist) {
+        if(item.liked) {
             return item
         }
     })
     player(data)
+    place.innerHTML = ''
+    count = 0
     for (let item of arr) {
-        if (local.artist === item.artist) {
+        if (item.liked) {
             count++
             let wrap = document.createElement('div')
             let number = document.createElement('p')
@@ -124,10 +114,20 @@ const music = (arr) => {
                 number.style.display = "none"
                 play.style.display = "block"
                 play.style.opacity = "1"
+                if(play.classList.contains('pausestop')) {
+                    spinner.classList.remove('opacity')
+                }
             }
             wrap.onclick = () => {
                 loadSong(item.music, item.artist, data)
-                audio.play()
+                    audio.play()
+            }
+            wrap.ondblclick = () => {
+                    if(play.classList.contains('pausestop')) {
+                        audio.pause()
+                    } else {
+                        audio.play()
+                    }
             }
             likedblock.onclick = () => {
                 likedblock.classList.toggle('full')
@@ -149,6 +149,10 @@ const music = (arr) => {
             wrap.onmouseleave = () => {
                 !item.liked ? likedblock.style.opacity = "0" : null
                 play.style.opacity = "0"
+                if(play.classList.contains('pausestop')) {
+                    spinner.classList.add('opacity')
+                }
+                
                 setTimeout(() => {
                     number.style.display = "block"
                     play.style.display = "none"
@@ -160,9 +164,6 @@ const music = (arr) => {
         }
     }
 }
-
-// var audio = new Audio();
-let musicount = 0
 let songIndex = 0
 const player = (musics) => {
     
@@ -219,14 +220,18 @@ async function loadSong(song, artist, music) {
     let block = document.querySelectorAll('.blocktext1')
     block.forEach(item => {
         if(item.innerHTML === data[0].music) {
-            // item.parentNode.parentNode.parentNode.style.backgroundColor = 'red'
-            // item.parentNode.parentNode.parentNode.firstChild.nextSibling.style.opacity = "1"
-            // item.parentNode.parentNode.parentNode.firstChild.style.opacity = "0"
             let spinner = document.querySelectorAll('.spinner')
             spinner.forEach(items => {
                 items.classList.remove('opacity')
 
                 item.parentNode.parentNode.parentNode.firstChild.nextSibling.classList.add('opacity')
+            }
+            )
+            let paused = document.querySelectorAll('.play')
+            paused.forEach(items => {
+                items.classList.remove('pausestop')
+
+                item.parentNode.parentNode.parentNode.firstChild.nextSibling.nextSibling.classList.add('pausestop')
             }
             )
             let numbersblock = document.querySelectorAll('.musicnumber')
@@ -252,7 +257,7 @@ async function loadSong(song, artist, music) {
             )
         }
     })
-    // console.log(block);
+    console.log(block);
     musictitle.innerHTML = song
     musicartist.innerHTML = artist
     musicimg.style.backgroundImage = `url("../img/${song}.jpg")`

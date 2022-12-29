@@ -6,7 +6,7 @@ const layout = (place) => {
                 <a href="../index.html" class="homeclick">
                     <div class="img-block">
                     <div class="img home"></div>
-                    <p class="text active">Home</p>
+                    <p class="text active hometext">Home</p>
                     </div>
                 </a>
                     <div class="img-block">
@@ -25,9 +25,9 @@ const layout = (place) => {
                         <div class="img create"></div>
                         <p class="text">Create Playlist</p>
                     </div>
-                    <div class="img-block">
+                    <div class="img-block likedclick">
                         <div class="img liked"></div>
-                        <p class="text active">Liked Songs</p>
+                        <p class="text active likedtext">Liked Songs</p>
                     </div>
                 </nav>
             </div>

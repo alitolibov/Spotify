@@ -106,6 +106,7 @@ nav {
 .books {
 	background-image: url("./public/images/Group\ 1books.png");
 	filter: invert(25%);
+	
 }
 
 .create {
@@ -676,6 +677,12 @@ footer {
 	background-size: cover;
 	background-image: url('./img/Two\ Feet.jpg');
 }
+.playlist-img2 {
+	width: 297px;
+	height: 297px;
+	background-size: cover;
+	background-image: url('./public/images/Likedbig.png');
+}
 
 .playlist-texts {
 	display: flex;
@@ -784,7 +791,15 @@ footer {
 	background: #65D36E;
 	width: 3px;
 }
-
+.color2{
+	background: linear-gradient(180deg, #604EC1 5.09%, #121212 43.28%);
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	z-index: -5;
+}
 @keyframes animation {
 	50% {
 		height: 4px;
@@ -998,6 +1013,9 @@ footer {
 	opacity: 0;
 	display: none;
 	transition: 500ms;
+}
+.pausestop{
+	background-image: url("./public/images/paused.svg");
 }
 
 .musicblocktext {
