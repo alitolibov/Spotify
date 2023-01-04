@@ -1,25 +1,18 @@
 import layout from "../layout/layout.js";
-let cont = document.querySelector('#root')
-let color = document.querySelector('.color2')
-layout(cont)
+import arr from "./data/data.js";
 let url = "http://localhost:3001/playlist"
 function write() {
     axios.get(url)
     .then(res => {
-        music(res.data)
         console.log(res.data);
+        reload(res.data)
     })
 }
 write()
-let local = JSON.parse(localStorage.getItem('albom'))
+let cont = document.querySelector('#root')
+cont.style.backgroundColor =  '#070707'
 layout(cont)
 let right = document.querySelector('.right')
-let place = document.querySelector('.musicsblock')
-let header = document.querySelector('header')
-let flow = document.querySelector('.none')
-let wrap = document.querySelector('.wrapper')
-let wraps = document.querySelector('.wrappers')
-let playerall = document.querySelector('.biggestPlayer')
 let pause = document.querySelector('.pause')
 let back = document.querySelector('.center-back')
 let next = document.querySelector('.center-next')
@@ -27,18 +20,27 @@ let progreesBlock = document.querySelector('.footer-center-bottom')
 let progress = document.querySelector('.progress')
 let musictitle = document.querySelector('.musictitle')
 let musicartist = document.querySelector('.musicartist')
-let search = document.querySelector('.searchhome')
-search.onclick = () => {
-    window.location.assign('../search/index.html')
-}
 let musicimg = document.querySelector('.musicimg')
 let stop = document.querySelector('.stop')
 let top = document.querySelector('.footer-center-top')
 let audio = document.querySelector('audio')
-let likedtext = document.querySelector('.likedtext')
-likedtext.style.color = '#ffffff'
-let home = document.querySelector('.home')
-home.style.filter = 'invert(25%)'
+let likedclick = document.querySelector('.likedclick')
+let searchblock = document.querySelector('.searchblock')
+let blockFlow = document.querySelectorAll('.history__block-item-top_no')
+let place = document.querySelector('.history__block__grid')
+let container = document.querySelector('.containersearch')
+let flow = document.querySelector('.none')
+let wrap = document.querySelector('.wrapper')
+let header = document.querySelector('header')
+let nameImg = document.querySelector('.search')
+nameImg.style.filter = 'invert(0%)'
+let name = document.querySelector('.searchtext')
+name.style.color = '#ffffff '
+let inp = document.querySelector('.inpsearch')
+let palceResults = document.querySelector('.place__results')
+let local = localStorage.getItem('search')
+
+jenres(arr.slice(0, 15))
 flow.onclick = () => {
     right.style.display = "none"
     header.style.width = '83.5%'
@@ -47,23 +49,52 @@ flow.onclick = () => {
     wrap.style.width = '80%'
     wrap.style.float = 'right'
     wrap.style.margin = '110px 1.5% 0 0'
-    wraps.style.width = '80%'
-    wraps.style.left = '18.0%'
-    wraps.style.transform = 'translateX(0%)'
+    place.style.gridTemplateColumns = 'repeat(6, 224px)'
+    place.style.gridAutoRows = '224px'
+    place.style.gridGap = '31px'
+    jenres(arr.slice(0))
+}
+searchblock.style.display = 'flex'
+likedclick.onclick = () => {
+    window.location.assign('../liked/index.html')
+}
+blockFlow.forEach(item => {
+    item.onclick = () => {
+        item.parentNode.parentNode.style.display = 'none'
+    }
+})
+function jenres(data) {
+    place.innerHTML = ''
+    for(let item of data) {
+        let block = document.createElement('div')
+        block.classList.add('history__block__grid__grid-block')
+        block.style.backgroundImage = `url('../public/jenres/${item.img}.png')`
+        place.append(block)
+    }
+}
+function reload(data) {
+    inp.onkeyup = () => {
+        if(inp.value.length !== 0) {
+            container.style.display = 'none'
+            palceResults.style.display = 'block'
+        } else {
+            container.style.display = 'block'
+            palceResults.style.display = 'none'
+        }
+        let value = inp.value.toLowerCase().trim()
+        let filtered = data.filter(item => item.music.toLowerCase().includes(value))
+        reloadArr(filtered);
+        localStorage.setItem('search', JSON.stringify(filtered))
+    }
 }
 let count = 0
-const music = (arr) => {
-    let data = arr.filter(item => {
-        if(item.liked) {
-            return item
-        }
-    })
-    player(data)
-    place.innerHTML = ''
+
+function reloadArr(arr) {
+    palceResults.innerHTML = ''
     count = 0
-    for (let item of arr) {
-        if (item.liked) {
-            count++
+    player(arr)
+    for(let item of arr) {
+        count++
             let wrap = document.createElement('div')
             let number = document.createElement('p')
             let play = document.createElement('div')
@@ -107,7 +138,7 @@ const music = (arr) => {
             timeblock.classList.add('timeblock')
             timeblock.innerHTML = item.length
             
-            place.append(wrap)
+            palceResults.append(wrap)
             wrap.append(number, spinner, play, block, blockalbum, musicdate, likedblock, timeblock)
             block.append(musicimg, musicblock)
             spinner.append(bir,ikki,uch, turt)
@@ -118,20 +149,10 @@ const music = (arr) => {
                 number.style.display = "none"
                 play.style.display = "block"
                 play.style.opacity = "1"
-                if(play.classList.contains('pausestop')) {
-                    spinner.classList.remove('opacity')
-                }
             }
             wrap.onclick = () => {
-                loadSong(item.music, item.artist, data)
-                    audio.play()
-            }
-            wrap.ondblclick = () => {
-                    if(play.classList.contains('pausestop')) {
-                        audio.pause()
-                    } else {
-                        audio.play()
-                    }
+                loadSong(item.music, item.artist, arr)
+                audio.play()
             }
             likedblock.onclick = () => {
                 likedblock.classList.toggle('full')
@@ -153,10 +174,6 @@ const music = (arr) => {
             wrap.onmouseleave = () => {
                 !item.liked ? likedblock.style.opacity = "0" : null
                 play.style.opacity = "0"
-                if(play.classList.contains('pausestop')) {
-                    spinner.classList.add('opacity')
-                }
-                
                 setTimeout(() => {
                     number.style.display = "block"
                     play.style.display = "none"
@@ -164,10 +181,9 @@ const music = (arr) => {
                 }, 200);
             }
             item.liked ? likedblock.classList.add('full') : null
-            
-        }
     }
 }
+let musicount = 0
 let songIndex = 0
 const player = (musics) => {
     
@@ -224,6 +240,9 @@ async function loadSong(song, artist, music) {
     let block = document.querySelectorAll('.blocktext1')
     block.forEach(item => {
         if(item.innerHTML === data[0].music) {
+            // item.parentNode.parentNode.parentNode.style.backgroundColor = 'red'
+            // item.parentNode.parentNode.parentNode.firstChild.nextSibling.style.opacity = "1"
+            // item.parentNode.parentNode.parentNode.firstChild.style.opacity = "0"
             let spinner = document.querySelectorAll('.spinner')
             spinner.forEach(items => {
                 items.classList.remove('opacity')
@@ -231,18 +250,18 @@ async function loadSong(song, artist, music) {
                 item.parentNode.parentNode.parentNode.firstChild.nextSibling.classList.add('opacity')
             }
             )
-            let paused = document.querySelectorAll('.play')
-            paused.forEach(items => {
-                items.classList.remove('pausestop')
-
-                item.parentNode.parentNode.parentNode.firstChild.nextSibling.nextSibling.classList.add('pausestop')
-            }
-            )
             let numbersblock = document.querySelectorAll('.musicnumber')
             numbersblock.forEach(items => {
                 items.classList.remove('noopacity')
 
                 item.parentNode.parentNode.parentNode.firstChild.classList.add('noopacity')
+            }
+            )
+            let paused = document.querySelectorAll('.play')
+            paused.forEach(items => {
+                items.classList.remove('pausestop')
+
+                item.parentNode.parentNode.parentNode.firstChild.nextSibling.nextSibling.classList.add('pausestop')
             }
             )
             let body = document.querySelectorAll('.musicitem')
@@ -261,7 +280,7 @@ async function loadSong(song, artist, music) {
             )
         }
     })
-    console.log(block);
+    // console.log(block);
     musictitle.innerHTML = song
     musicartist.innerHTML = artist
     musicimg.style.backgroundImage = `url("../img/${song}.jpg")`

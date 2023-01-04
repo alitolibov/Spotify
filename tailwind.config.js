@@ -1,11 +1,7 @@
 module.exports = {
-    content: [
-        "./node_modules/flowbite/**/*.js"
-    ],
-    plugins: [
-        require('flowbite/plugin')
-    ]
-
-}
-
-import 'flowbite';
+    content: ["./src/**/*.{html,js}"],
+    theme: {
+      extend: {},
+    },
+    plugins: [],
+  }

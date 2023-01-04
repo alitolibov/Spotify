@@ -9,9 +9,9 @@ const layout = (place) => {
                     <p class="text active hometext">Home</p>
                     </div>
                 </a>
-                    <div class="img-block">
+                    <div class="img-block searchhome">
                         <div class="img search"></div>
-                        <p class="text">Search</p>
+                        <p class="text searchtext">Search</p>
                     </div>
                     <div class="img-block">
                         <div class="img books"></div>
@@ -42,9 +42,12 @@ const layout = (place) => {
                <div class="header-left">
                     <a><div class="back"></div></a>
                     <a><div class="next"></div></a>
+                    <div class="searchblock">
+            <div class="searchImg"></div>
+            <input type="text" placeholder="Artists, songs, or podcasts" class="inpsearch" name="search">
+        </div>
                </div>
                <div class="header-right">
-               
                 <button id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName" class="flex items-center text-sm font-medium text-gray-900 rounded-full hover:text-blue-600 dark:hover:text-blue-500 md:mr-0 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-white" type="button">
                 <span class="sr-only">Open user menu</span>
                 <img src="../public/images/dava.png" alt="" class="mr-2 w-8 h-8 rounded-full">
@@ -62,7 +65,7 @@ const layout = (place) => {
                      <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
                 </li>
                 <li>
-                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                    <a href="../settings/index.html" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
                 </li>
                 <li>
                     <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>

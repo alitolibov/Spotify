@@ -28,6 +28,10 @@ let flow = document.querySelector('.none')
 let wrap = document.querySelector('.wrapper')
 let wraps = document.querySelector('.wrappers')
 let playerall = document.querySelector('.biggestPlayer')
+let search = document.querySelector('.searchhome')
+search.onclick = () => {
+    window.location.assign('../search/index.html')
+}
 let pause = document.querySelector('.pause')
 let back = document.querySelector('.center-back')
 let next = document.querySelector('.center-next')
@@ -234,6 +238,13 @@ async function loadSong(song, artist, music) {
                 items.classList.remove('noopacity')
 
                 item.parentNode.parentNode.parentNode.firstChild.classList.add('noopacity')
+            }
+            )
+            let paused = document.querySelectorAll('.play')
+            paused.forEach(items => {
+                items.classList.remove('pausestop')
+
+                item.parentNode.parentNode.parentNode.firstChild.nextSibling.nextSibling.classList.add('pausestop')
             }
             )
             let body = document.querySelectorAll('.musicitem')

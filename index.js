@@ -28,10 +28,14 @@ let sectiontwo = document.querySelector('.gridtwo')
 let grids = document.querySelectorAll('.grid-block')
 let click = document.querySelector('.click')
 let likedclick = document.querySelector('.likedclick')
+let search = document.querySelector('.searchhome')
 let likedtext = document.querySelector('.hometext')
 likedtext.style.color = '#ffffff'
 likedclick.onclick = () => {
     window.location.assign('/liked/index.html')
+}
+search.onclick = () => {
+    window.location.assign('/search/index.html')
 }
 grids.forEach(item => {
     item.onmouseenter = () => {
