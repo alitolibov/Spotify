@@ -14,10 +14,16 @@ axios.get("http://localhost:3001/alboms")
     reload(a.slice(0, 5))
     reloadtwo(b.slice(6, 11))
 })
+let premimStorage = JSON.parse(localStorage.getItem('userState'))
 let body = document.querySelector('#root')
 layout(body)
 let cont = document.body
-cont.classList.add('index')
+if(premimStorage) {
+    premimStorage.change === 'on' ? cont.classList.add('gold') : cont.classList.add('index')
+} else {
+
+    cont.classList.add('index')
+}
 let right = document.querySelector('.right')
 let header = document.querySelector('header')
 let flow = document.querySelector('.none')
