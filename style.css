@@ -606,7 +606,6 @@ footer {
 	grid-auto-rows: 324px;
 	margin-bottom: 50px;
 }
-
 .gridtwo {
 	display: grid;
 	grid-template-columns: repeat(5, 220px);
@@ -614,6 +613,24 @@ footer {
 	grid-auto-rows: 324px;
 }
 
+.gridUptaded{
+	grid-template-columns: repeat(6, 224px);
+	grid-auto-rows: 324px;
+	grid-gap: 31px;
+}
+.wrapUptaded{
+	width: 80%;
+    float: right;
+    margin: 110px 1.5% 0;
+}
+.headerUptaded{
+	width: 83.5%;
+	left: 16.5%;
+	transform: translateX(0%);
+}
+.bodyUptaded{
+	height: 147vh;
+}
 .items {
 	background: #FFFFFF04;
 	border-radius: 8px;

@@ -2,6 +2,8 @@ import layout from "./layout/layout.js";
 let url = "http://localhost:3001/playlist"
 let a
 let b
+const viewport_width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+
 axios.get(url)
 .then(res => {
     console.log(res.data)
@@ -11,8 +13,13 @@ axios.get("http://localhost:3001/alboms")
     console.log(res.data)
     a = res.data
     b = res.data
-    reload(a.slice(0, 5))
-    reloadtwo(b.slice(6, 11))
+    if(viewport_width <= 1650) {
+        reload(a.slice(0, 4))
+        reloadtwo(b.slice(6, 10))
+    } else {
+        reload(a.slice(0, 5))
+        reloadtwo(b.slice(6, 11))
+    }
 })
 let premimStorage = JSON.parse(localStorage.getItem('userState'))
 let body = document.querySelector('#root')
@@ -68,21 +75,21 @@ grids.forEach(item => {
 })
 flow.onclick = () => {
     right.style.display = "none"
-    header.style.width = '83.5%'
-    header.style.left = '16.5%'
-    header.style.transform = 'translateX(0%)'
-    wrap.style.width = '80%'
-    wrap.style.float = 'right'
-    wrap.style.margin = '110px 1.5% 0 0'
+    header.classList.add('headerUptaded')
+    wrap.classList.add('wrapUptaded')
     grid.style.gridTemplateColumns = "repeat(3, 1fr)"
-    section.style.gridTemplateColumns = "repeat(6, 224px)"
-    section.style.gridGap = "31px"
-    sectiontwo.style.gridTemplateColumns = "repeat(6, 224px)"
-    sectiontwo.style.gridGap = "31px"
-    body.style.height = "147vh"
-    reload(a.slice(0, 6))
-    reloadtwo(b.slice(6))
+    section.classList.add('gridUptaded')
+    sectiontwo.classList.add('gridUptaded')
+    body.classList.add('bodyUptaded')
+    if(viewport_width <= 1650) {
+        reload(a.slice(0, 5))
+        reloadtwo(b.slice(6, 11))
+    } else {
+        reload(a.slice(0, 6))
+        reloadtwo(b.slice(6))
+    }
 }
+
 let {pathname} = window.location
 pathname !== '/playlist/index.html' || '/liked/index.html' ? localStorage.removeItem('albom') : null
 
@@ -174,12 +181,3 @@ const reload = (arr) => {
         }
      }
  }
- let radius = document.querySelector('.radius')
-progreesBlock.onmouseenter = () => {
-    progress.classList.add('green2')
-    radius.style.display = 'block'
-}
-progreesBlock.onmouseleave = () => {
-    progress.classList.remove('green2')
-    radius.style.display = 'none'
-}
