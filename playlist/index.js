@@ -35,8 +35,20 @@ search.onclick = () => {
 let pause = document.querySelector('.pause')
 let back = document.querySelector('.center-back')
 let next = document.querySelector('.center-next')
+let clickImg = document.querySelector('.musicimg')
+let bigImg = document.querySelector('.footer-big-img')
+let flowBtn = document.querySelector('.flowBtn')
+clickImg.onclick = () => {
+    clickImg.style.display = 'none'
+    bigImg.style.display = 'block'
+}
+flowBtn.onclick = () => {
+    clickImg.style.display = 'block'
+    bigImg.style.display = 'none'
+}
 let progreesBlock = document.querySelector('.footer-center-bottom')
 let progress = document.querySelector('.progress')
+let radius = document.querySelector('.radius')
 let musictitle = document.querySelector('.musictitle')
 let musicartist = document.querySelector('.musicartist')
 let musicimg = document.querySelector('.musicimg')
@@ -47,7 +59,14 @@ let likedclick = document.querySelector('.likedclick')
 likedclick.onclick = () => {
     window.location.assign('../liked/index.html')
 }
-
+progreesBlock.onmouseenter = () => {
+    progress.classList.add('green2')
+    radius.style.display = 'block'
+}
+progreesBlock.onmouseleave = () => {
+    progress.classList.remove('green2')
+    radius.style.display = 'none'
+}
 
 flow.onclick = () => {
     right.style.display = "none"
@@ -267,6 +286,7 @@ async function loadSong(song, artist, music) {
     musictitle.innerHTML = song
     musicartist.innerHTML = artist
     musicimg.style.backgroundImage = `url("../img/${song}.jpg")`
+    bigImg.style.backgroundImage = `url("../img/${song}.jpg")`
     audio.src = `../music/${song}.mp3`;
 }
 

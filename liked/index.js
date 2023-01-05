@@ -14,6 +14,18 @@ write()
 let local = JSON.parse(localStorage.getItem('albom'))
 layout(cont)
 let right = document.querySelector('.right')
+let clickImg = document.querySelector('.musicimg')
+let bigImg = document.querySelector('.footer-big-img')
+let flowBtn = document.querySelector('.flowBtn')
+clickImg.onclick = () => {
+    clickImg.style.display = 'none'
+    bigImg.style.display = 'block'
+}
+flowBtn.onclick = () => {
+    clickImg.style.display = 'block'
+    bigImg.style.display = 'none'
+}
+
 let place = document.querySelector('.musicsblock')
 let header = document.querySelector('header')
 let flow = document.querySelector('.none')
@@ -265,6 +277,7 @@ async function loadSong(song, artist, music) {
     musictitle.innerHTML = song
     musicartist.innerHTML = artist
     musicimg.style.backgroundImage = `url("../img/${song}.jpg")`
+    bigImg.style.backgroundImage = `url("../img/${song}.jpg")`
     audio.src = `../music/${song}.mp3`;
 }
 
@@ -293,3 +306,13 @@ function setProgres(e) {
     audio.currentTime = (click / width) * duration
 }
 progreesBlock.addEventListener('click', setProgres)
+progreesBlock.addEventListener('click', setProgres)
+let radius = document.querySelector('.radius')
+progreesBlock.onmouseenter = () => {
+    progress.classList.add('green2')
+    radius.style.display = 'block'
+}
+progreesBlock.onmouseleave = () => {
+    progress.classList.remove('green2')
+    radius.style.display = 'none'
+}

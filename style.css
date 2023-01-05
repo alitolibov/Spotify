@@ -55,7 +55,8 @@ body {
 	background: linear-gradient(180deg, #3333A3 5.09%, #121212 33.4%);
 	height: 144vh;
 }
-.gold{
+
+.gold {
 	background: linear-gradient(180deg, #F8CA24 5.09%, #121212 33.4%);
 	height: 144vh;
 }
@@ -365,6 +366,7 @@ footer {
 	background-color: white;
 	height: 100%;
 	cursor: pointer;
+	position: relative;
 }
 
 .pause {
@@ -394,6 +396,7 @@ footer {
 }
 
 .footer-left {
+	position: relative;
 	display: flex;
 	align-items: center;
 	gap: 25px;
@@ -409,6 +412,7 @@ footer {
 	border-radius: 5px;
 	background-image: url('./img/ExHabit.jpg');
 	background-size: cover;
+	cursor: pointer;
 }
 
 .return {
@@ -426,14 +430,13 @@ footer {
 	width: 552px;
 	height: 5px;
 	background-color: #8B8B8B;
-	border-radius: 10px;
 	cursor: pointer;
-	overflow: hidden;
 }
 
 .progrees {
 	height: 100%;
 	background-color: white;
+	border-radius: 10px;
 }
 
 .footer-right {
@@ -772,7 +775,20 @@ footer {
 .green {
 	color: #65D36E !important;
 }
-
+.green2{
+	background-color: #65D36E !important;
+}
+.radius{
+	width: 13px !important;
+	height: 13px !important;
+	background-color: white;
+	border-radius: 100% !important;
+	position: absolute;
+	display: none;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+}
 .bir {
 	height: 18px;
 	animation: animation 1.5s infinite;
@@ -1260,7 +1276,8 @@ footer {
 	font-family: 'Circular';
 	color: #ffffff90;
 }
-.submitChange{
+
+.submitChange {
 	font-size: 22px;
 	font-family: 'Circular 700';
 	color: white;
@@ -1270,9 +1287,37 @@ footer {
 	cursor: pointer;
 	transition: 500ms;
 }
-.submitChange:hover{
+
+.submitChange:hover {
 	background-color: #1DB95499;
 }
+
+.flowBtn {
+	width: 30px;
+	height: 30px;
+	background-image: url('./public/images/Flow.png');
+	background-size: cover;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	cursor: pointer;
+	transition: 500ms;
+}
+.flowBtn:hover{
+	filter: invert(15%);
+}
+
+.footer-big-img {
+	width: 310px;
+	height: 310px;
+	position: absolute;
+	background-size: cover;
+	background-image: url('./img/ExHabit.jpg');
+	display: none;
+	top: -335px;
+	left: -18px;
+}
+
 .inpChange {
 	all: unset !important;
 	height: 50px !important;
@@ -1283,12 +1328,14 @@ footer {
 	font-size: 15px !important;
 	font-family: 'Circular' !important;
 }
-.noResults{
+
+.noResults {
 	font-size: 22px;
 	font-family: 'Circular 700';
 	color: white;
 	text-align: center;
 }
+
 .switch {
 	position: relative;
 	display: inline-block;

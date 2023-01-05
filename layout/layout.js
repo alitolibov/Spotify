@@ -99,6 +99,9 @@ const layout = (place) => {
         </div>
         <footer>
             <div class="footer-left">
+            <div class="footer-big-img">
+            <div class="flowBtn"></div>
+            </div>
             <div class="musicimg"></div>
             <div class="artistssongs">
             <p class="musictitle">Play It Safe</p>
@@ -115,7 +118,9 @@ const layout = (place) => {
                     <audio src=""></audio>
                 </div>
                 <div class="footer-center-bottom">
-                    <div class="progress"></div>
+                    <div class="progress">
+                    <div class="radius"></div>
+                    </div>
                 </div>
             </div>
             <div class="footer-right">

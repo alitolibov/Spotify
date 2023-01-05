@@ -39,6 +39,17 @@ name.style.color = '#ffffff '
 let inp = document.querySelector('.inpsearch')
 let palceResults = document.querySelector('.place__results')
 let local = localStorage.getItem('search')
+let clickImg = document.querySelector('.musicimg')
+let bigImg = document.querySelector('.footer-big-img')
+let flowBtn = document.querySelector('.flowBtn')
+clickImg.onclick = () => {
+    clickImg.style.display = 'none'
+    bigImg.style.display = 'block'
+}
+flowBtn.onclick = () => {
+    clickImg.style.display = 'block'
+    bigImg.style.display = 'none'
+}
 
 jenres(arr.slice(0, 15))
 flow.onclick = () => {
@@ -284,6 +295,7 @@ async function loadSong(song, artist, music) {
     musictitle.innerHTML = song
     musicartist.innerHTML = artist
     musicimg.style.backgroundImage = `url("../img/${song}.jpg")`
+    bigImg.style.backgroundImage = `url("../img/${song}.jpg")`
     audio.src = `../music/${song}.mp3`;
 }
 
@@ -312,3 +324,12 @@ function setProgres(e) {
     audio.currentTime = (click / width) * duration
 }
 progreesBlock.addEventListener('click', setProgres)
+let radius = document.querySelector('.radius')
+progreesBlock.onmouseenter = () => {
+    progress.classList.add('green2')
+    radius.style.display = 'block'
+}
+progreesBlock.onmouseleave = () => {
+    progress.classList.remove('green2')
+    radius.style.display = 'none'
+}

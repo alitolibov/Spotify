@@ -36,6 +36,17 @@ let click = document.querySelector('.click')
 let likedclick = document.querySelector('.likedclick')
 let search = document.querySelector('.searchhome')
 let likedtext = document.querySelector('.hometext')
+let clickImg = document.querySelector('.musicimg')
+let bigImg = document.querySelector('.footer-big-img')
+let flowBtn = document.querySelector('.flowBtn')
+clickImg.onclick = () => {
+    clickImg.style.display = 'none'
+    bigImg.style.display = 'block'
+}
+flowBtn.onclick = () => {
+    clickImg.style.display = 'block'
+    bigImg.style.display = 'none'
+}
 likedtext.style.color = '#ffffff'
 likedclick.onclick = () => {
     window.location.assign('/liked/index.html')
@@ -163,3 +174,12 @@ const reload = (arr) => {
         }
      }
  }
+ let radius = document.querySelector('.radius')
+progreesBlock.onmouseenter = () => {
+    progress.classList.add('green2')
+    radius.style.display = 'block'
+}
+progreesBlock.onmouseleave = () => {
+    progress.classList.remove('green2')
+    radius.style.display = 'none'
+}
