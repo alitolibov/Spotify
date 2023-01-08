@@ -19,6 +19,10 @@ axios.get("http://localhost:3001/alboms")
     } else {
         reload(a.slice(0, 5))
         reloadtwo(b.slice(6, 11))
+    } 
+    if(viewport_width <= 1350) {
+        reload(a.slice(0, 3))
+        reloadtwo(b.slice(6, 9))
     }
 })
 let premimStorage = JSON.parse(localStorage.getItem('userState'))
@@ -80,13 +84,17 @@ flow.onclick = () => {
     grid.style.gridTemplateColumns = "repeat(3, 1fr)"
     section.classList.add('gridUptaded')
     sectiontwo.classList.add('gridUptaded')
-    body.classList.add('bodyUptaded')
+    cont.classList.add('bodyUptaded')
     if(viewport_width <= 1650) {
         reload(a.slice(0, 5))
         reloadtwo(b.slice(6, 11))
     } else {
         reload(a.slice(0, 6))
         reloadtwo(b.slice(6))
+    }
+    if(viewport_width <= 1350) {
+        reload(a.slice(0, 4))
+        reloadtwo(b.slice(6, 10))
     }
 }
 

@@ -1,13 +1,10 @@
 import layout from "../layout/layout.js";
-let url = "http://localhost:3001/playlist"
-function write() {
-    axios.get(url)
+    axios.get('http://localhost:3001/playlist')
     .then(res => {
         music(res.data)
         console.log(res.data);
     })
-}
-write()
+
 axios.get("http://localhost:3001/alboms")
     .then(res => {
         console.log(res.data)
@@ -315,3 +312,25 @@ function setProgres(e) {
     audio.currentTime = (click / width) * duration
 }
 progreesBlock.addEventListener('click', setProgres)
+
+let volume = document.querySelector('.progrees-volume')
+let radiusTwo = document.querySelector('.radius2')
+let volumeBlock = document.querySelector('.footer-volume')
+volumeBlock.addEventListener('click', setVolume);
+
+  function setVolume(e) {
+    let width = this.clientWidth
+    let click = e.offsetX
+    audio.volume = (width / 100) * click / 100 
+    console.log(width, click, audio.volume);
+    volume.style.width = `${(width / 100) * click}%`
+    console.log(volume);
+  }
+  volumeBlock.onmouseenter = () => {
+    volume.classList.add('green2')
+    radiusTwo.style.display = 'block'
+}
+volumeBlock.onmouseleave = () => {
+    volume.classList.remove('green2')
+    radiusTwo.style.display = 'none'
+}

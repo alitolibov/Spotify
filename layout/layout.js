@@ -36,6 +36,15 @@ const layout = (place) => {
             <div class="left-bottom">
                 <nav>
                     <div class="gap">
+                    <p class='grey'>Chill Mix</p>
+                    <p class='grey'>Insta Hits</p>
+                    <p class='grey'>Your Top Songs</p>
+                    <p class='grey'>Mellow Songs</p>
+                    <p class='grey'>Anime Lofi & Chillhop Music</p>
+                    <p class='grey'>BG Afro “Select” Vibes</p>
+                    <p class='grey'>Happy Hits!</p>
+                    <p class='grey'>Deep Focus</p>
+                    <p class='grey'>Instrumental Study</p>
                     </div>
                 </nav>
             </div>
@@ -127,7 +136,11 @@ const layout = (place) => {
                 <div class="xs"></div>
                 <div class="kolonka"></div>
                 <div class="volume"></div>
-                <div class="crossbar"></div>
+                <div class="footer-volume">
+                    <div class="progrees-volume">
+                    <div class="radius2"></div>
+                    </div>
+                </div>
                 <div class="big"></div>
             </div>
         </footer>

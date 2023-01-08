@@ -333,3 +333,24 @@ progreesBlock.onmouseleave = () => {
     progress.classList.remove('green2')
     radius.style.display = 'none'
 }
+let volume = document.querySelector('.progrees-volume')
+let radiusTwo = document.querySelector('.radius2')
+let volumeBlock = document.querySelector('.footer-volume')
+volumeBlock.addEventListener('click', setVolume);
+
+  function setVolume(e) {
+    let width = this.clientWidth
+    let click = e.offsetX
+    audio.volume = (width / 100) * click / 100 
+    console.log(width, click, audio.volume);
+    volume.style.width = `${(width / 100) * click}%`
+    console.log(volume);
+  }
+  volumeBlock.onmouseenter = () => {
+    volume.classList.add('green2')
+    radiusTwo.style.display = 'block'
+}
+volumeBlock.onmouseleave = () => {
+    volume.classList.remove('green2')
+    radiusTwo.style.display = 'none'
+}
