@@ -19,22 +19,6 @@ axios.get("http://localhost:3001/alboms")
     } else {
         reload(a.slice(0, 5))
         reloadtwo(b.slice(6, 11))
-    } 
-    if(viewport_width <= 1350) {
-        reload(a.slice(0, 3))
-        reloadtwo(b.slice(6, 9))
-    }
-    if(viewport_width <= 1200) {
-        reload(a.slice(0, 4))
-        reloadtwo(b.slice(6, 10))
-    }
-    if(viewport_width <= 900) {
-        reload(a.slice(0, 3))
-        reloadtwo(b.slice(6, 9))
-    }
-    if(viewport_width <= 600) {
-        reload(a.slice(0, 2))
-        reloadtwo(b.slice(6, 8))
     }
 })
 let premimStorage = JSON.parse(localStorage.getItem('userState'))
@@ -61,10 +45,7 @@ let search = document.querySelector('.searchhome')
 let likedtext = document.querySelector('.hometext')
 let clickImg = document.querySelector('.musicimg')
 let bigImg = document.querySelector('.footer-big-img')
-let bigImg2 = document.querySelector('.bigImg2')
-let flowBtn2 = document.querySelector('.flowBtn2')
 let flowBtn = document.querySelector('.flowBtn')
-let clickImg2 = document.querySelector('.imgClick2')
 clickImg.onclick = () => {
     clickImg.style.display = 'none'
     bigImg.style.display = 'block'
@@ -72,14 +53,6 @@ clickImg.onclick = () => {
 flowBtn.onclick = () => {
     clickImg.style.display = 'block'
     bigImg.style.display = 'none'
-}
-clickImg2.onclick = () => {
-    clickImg2.style.display = 'none'
-    bigImg2.style.display = 'block'
-}
-flowBtn2.onclick = () => {
-    clickImg2.style.display = 'block'
-    bigImg2.style.display = 'none'
 }
 likedtext.style.color = '#ffffff'
 likedclick.onclick = () => {
@@ -107,17 +80,13 @@ flow.onclick = () => {
     grid.style.gridTemplateColumns = "repeat(3, 1fr)"
     section.classList.add('gridUptaded')
     sectiontwo.classList.add('gridUptaded')
-    cont.classList.add('bodyUptaded')
+    body.classList.add('bodyUptaded')
     if(viewport_width <= 1650) {
         reload(a.slice(0, 5))
         reloadtwo(b.slice(6, 11))
     } else {
         reload(a.slice(0, 6))
         reloadtwo(b.slice(6))
-    }
-    if(viewport_width <= 1350) {
-        reload(a.slice(0, 4))
-        reloadtwo(b.slice(6, 10))
     }
 }
 

@@ -99,61 +99,9 @@ nav {
 	background-repeat: no-repeat;
 }
 
-.img-block2 {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	gap: 10px;
-}
 
-.footer2 {
-	width: 100%;
-	height: 90px;
-	background: rgb(18, 18, 18);
-	background: linear-gradient(180deg, rgba(18, 18, 18, 0.8827906162464986) 4%, rgba(18, 18, 18, 0.8883928571428571) 72%);
-	padding: 0 35px;
-	position: fixed;
-	display: none;
-	align-items: center;
-	justify-content: space-between;
-	z-index: 1000;
-}
-.footer3{
-	width: 98%;
-	height: 80px;
-	background-color: #181818;
-	position: relative;
-	padding: 10px 10px 0;
-	border-radius: 10px; 
-	position: fixed;
-	left: 50%;
-	transform: translateX(-50%);
-	display: none;
-	flex-direction: column;
-	gap: 10px;
-	z-index: 1000;
-}
-.footer3_top{
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-}
-.footer3_top_left{
-	display: flex;
-	align-items: center;
-	gap: 15px;
-}
-.footer3-bottom{
-	position: absolute;
-	width: 98%;
-	height: 5px;
-	background-color: #8B8B8B;
-	cursor: pointer;
-	bottom: 0;
-	left: 50%;
-	transform: translateX(-50%);
-}
+
+
 .search {
 	background-image: url("./public/images/Vectorsearch.png");
 	filter: invert(25%);
@@ -221,19 +169,6 @@ text:hover {
 	position: fixed;
 	right: 0;
 	top: 0;
-}
-
-.footer-volume {
-	width: 100px;
-	height: 5px;
-	background-color: #8B8B8B;
-	cursor: pointer;
-}
-
-.progrees-volume {
-	height: 100%;
-	background-color: white;
-	position: relative;
 }
 
 .right-top {
@@ -315,6 +250,7 @@ header {
 	width: 66%;
 	z-index: 10;
 	background-color: transparent;
+	/* background-color: red; */
 	height: 80px;
 	position: fixed;
 	top: 0;
@@ -337,7 +273,6 @@ header {
 	height: 40px;
 	background-image: url("./public/images/Backback.png");
 	transition: 500ms;
-	background-size: cover;
 }
 
 .back:hover {
@@ -348,7 +283,6 @@ header {
 	width: 40px;
 	height: 40px;
 	background-image: url("./public/images/Forwardnext.png");
-	background-size: cover;
 }
 
 .next:hover {
@@ -410,7 +344,6 @@ footer {
 	height: 32px;
 	background-image: url("./public/images/Shuffle_S.png");
 	cursor: pointer;
-	background-size: cover;
 }
 
 .shuffle:hover {
@@ -469,13 +402,6 @@ footer {
 	gap: 25px;
 }
 
-.footer-left {
-	position: relative;
-	display: flex;
-	align-items: center;
-	gap: 25px;
-}
-
 .center-next:hover {
 	filter: invert(20%);
 }
@@ -488,14 +414,7 @@ footer {
 	background-size: cover;
 	cursor: pointer;
 }
-.imgClick2 {
-	width: 60px;
-	height: 60px;
-	border-radius: 5px;
-	background-image: url('./img/ExHabit.jpg');
-	background-size: cover;
-	cursor: pointer;
-}
+
 .return {
 	width: 32px;
 	height: 32px;
@@ -558,6 +477,14 @@ footer {
 
 .volume:hover {
 	filter: invert(20%);
+}
+
+
+.crossbar {
+	width: 119px;
+	height: 5px;
+	background-image: url("./public/images/Group\ 2line\ \(1\).png");
+	cursor: pointer;
 }
 
 .big {
@@ -679,7 +606,6 @@ footer {
 	grid-auto-rows: 324px;
 	margin-bottom: 50px;
 }
-
 .gridtwo {
 	display: grid;
 	grid-template-columns: repeat(5, 220px);
@@ -687,28 +613,24 @@ footer {
 	grid-auto-rows: 324px;
 }
 
-.gridUptaded {
+.gridUptaded{
 	grid-template-columns: repeat(6, 224px);
 	grid-auto-rows: 324px;
 	grid-gap: 31px;
 }
-
-.wrapUptaded {
+.wrapUptaded{
 	width: 80%;
-	float: right;
-	margin: 110px 1.5% 0;
+    float: right;
+    margin: 110px 1.5% 0;
 }
-
-.headerUptaded {
+.headerUptaded{
 	width: 83.5%;
 	left: 16.5%;
 	transform: translateX(0%);
 }
-
-.bodyUptaded {
-	height: 150vh;
+.bodyUptaded{
+	height: 147vh;
 }
-
 .items {
 	background: #FFFFFF04;
 	border-radius: 8px;
@@ -718,12 +640,6 @@ footer {
 	gap: 25px;
 	cursor: pointer;
 	transition: 500ms;
-}
-
-.header-right {
-	display: flex;
-	align-items: center;
-	gap: 15px;
 }
 
 .items:hover {
@@ -876,12 +792,10 @@ footer {
 .green {
 	color: #65D36E !important;
 }
-
-.green2 {
+.green2{
 	background-color: #65D36E !important;
 }
-
-.radius {
+.radius{
 	width: 13px !important;
 	height: 13px !important;
 	background-color: white;
@@ -892,19 +806,6 @@ footer {
 	top: 50%;
 	transform: translateY(-50%);
 }
-
-.radius2 {
-	width: 13px !important;
-	height: 13px !important;
-	background-color: white;
-	border-radius: 100% !important;
-	position: absolute;
-	display: none;
-	right: 0;
-	top: 50%;
-	transform: translateY(-50%);
-}
-
 .bir {
 	height: 18px;
 	animation: animation 1.5s infinite;
@@ -1419,22 +1320,7 @@ footer {
 	cursor: pointer;
 	transition: 500ms;
 }
-.flowBtn2 {
-	width: 30px;
-	height: 30px;
-	background-image: url('./public/images/Flow.png');
-	background-size: cover;
-	position: absolute;
-	right: 10px;
-	top: 10px;
-	cursor: pointer;
-	transition: 500ms;
-}
-
-.flowBtn:hover {
-	filter: invert(15%);
-}
-.flowBtn2:hover {
+.flowBtn:hover{
 	filter: invert(15%);
 }
 
@@ -1448,16 +1334,7 @@ footer {
 	top: -335px;
 	left: -18px;
 }
-.bigImg2{
-	width: 310px;
-	height: 310px;
-	position: absolute;
-	background-size: cover;
-	background-image: url('./img/ExHabit.jpg');
-	display: none;
-	top: -335px;
-	left: -18px;
-}
+
 .inpChange {
 	all: unset !important;
 	height: 50px !important;

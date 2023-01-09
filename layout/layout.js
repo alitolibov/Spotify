@@ -36,15 +36,6 @@ const layout = (place) => {
             <div class="left-bottom">
                 <nav>
                     <div class="gap">
-                    <p class='grey'>Chill Mix</p>
-                    <p class='grey'>Insta Hits</p>
-                    <p class='grey'>Your Top Songs</p>
-                    <p class='grey'>Mellow Songs</p>
-                    <p class='grey'>Anime Lofi & Chillhop Music</p>
-                    <p class='grey'>BG Afro “Select” Vibes</p>
-                    <p class='grey'>Happy Hits!</p>
-                    <p class='grey'>Deep Focus</p>
-                    <p class='grey'>Instrumental Study</p>
                     </div>
                 </nav>
             </div>
@@ -136,58 +127,10 @@ const layout = (place) => {
                 <div class="xs"></div>
                 <div class="kolonka"></div>
                 <div class="volume"></div>
-                <div class="footer-volume">
-                    <div class="progrees-volume">
-                    <div class="radius2"></div>
-                    </div>
-                </div>
+                <div class="crossbar"></div>
                 <div class="big"></div>
             </div>
         </footer>
-        <div class="footer3">
-            <div class="footer3_top">
-                <div class="footer3_top_left">
-                    <div class="bigImg2">
-                        <div class="flowBtn2"></div>
-                        </div>
-                        <div class="imgClick2"></div>
-                        <div class="artistssongs">
-                        <p class="musictitle">Play It Safe</p>
-                            <p class="musicartist">Julia Wolf</p>
-                         </div>
-                </div>
-                    <div class="pause"></div>
-            </div>
-            <div class="footer3-bottom">
-                <div class="progress">
-                <div class="radius"></div>
-                </div>
-            </div>
-        </div>
-        <div class="footer2">
-        <a href="../index.html" class="homeclick">
-            <div class="img-block2">
-            <div class="img home"></div>
-            <p class="text active hometext footerText">Home</p>
-            </div>
-        </a>
-        <a href="../search/index.html" class="searchClick">
-        <div class="img-block2 searchhome">
-            <div class="img search"></div>
-            <p class="text searchtext footerText">Search</p>
-        </div>
-        </a>
-        <div class="img-block2">
-            <div class="img create"></div>
-            <p class="text footerText">Create Playlist</p>
-        </div>
-        <a href="../liked/index.html" class="searchClick">
-        <div class="img-block2 likedclick">
-            <div class="img liked"></div>
-            <p class="text active likedtext footerText">Liked Songs</p>
-        </div>
-        </a>
-    </div>
     `
 }
  
